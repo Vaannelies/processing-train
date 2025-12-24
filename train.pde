@@ -119,6 +119,8 @@ void draw() {
   textSize(16);
   text("Drag your mouse to create a new track for NS!", 24,48);
   text("Release mouse to start the train :)", 24,72);
+  text("Press R key to restart train on the same track", 24,96);
+
 
   
   railSystem.update();
@@ -151,6 +153,13 @@ void draw() {
   
   if(trainIsActive) {
     trainDrive();
+  }
+}
+
+void keyPressed() {
+  if((key == 'r') && railSystem.rails.size() > 0) {
+    this.trainIsActive = true;
+    this.trainRailsLocationIndex = 0;
   }
 }
 
